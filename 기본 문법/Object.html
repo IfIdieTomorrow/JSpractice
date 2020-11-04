@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+    <h1>Object</h1>
+    <h2>Create</h2>
+    <script>
+        let core = {
+            "programmer" : "egoing",
+            "designer" : "leezche"
+        }
+        document.write("programmer : "+core.programmer+"<br>");
+        document.write("designer : " +core.designer+"<br>");
+        core.bookkeeper = "duru";
+        document.write("bookkeeoer : "+core.bookkeeper+"<br>");
+        core["data scientist"] = "taeho";
+        document.write("data scientist : "+core["data scientist"]);
+
+        
+    </script>
+    <h2>Property & Method</h2>
+    <script>
+        core.showAll = function(){
+            for(let key in this){
+                console.log(key, this[key]);
+            }
+        }
+        core.showAll();
+    </script>
+</body>
+</html> 
