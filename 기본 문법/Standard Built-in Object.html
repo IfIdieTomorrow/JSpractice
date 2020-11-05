@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <script>
+        /*
+        표준 내장 객체(Standard Built-in Object)
+        자바스크립트가 기본적으로 가지고 있는 객체들을 의미한다.
+        내장 객체가 중요한 이유는 프로그래밍을 하는데 기본적으로 필요한 도구들이기 때문이다. 
+        결국 프로그래밍이라는 것은 언어와 호스트 환경에 제공하는 기능들을 통해서
+        새로운 소프트웨어를 만들어내는 것이기 때문에 내장 객체에 대한 이해는 프로그래밍의 기본이라고 할 수 있다. 
+        */
+        
+        //배열을 확장해보자. 아래 코드는 배열에서 특정한 값을 랜덤하게 추출하는 코드다.
+        let arr = new Array('seoul','new york','ladarkh','pusan','Tsukuba');
+        function getRandomValueFromArray(stack){
+            let index = Math.floor(stack.length*Math.random());
+            //Math.floor()함수는 매개변수로 받은 값이 소수이면 소수점 이하를 제거하지만.
+            //'내림' 개념으로 생각하는것이 좋다.
+            return stack[index];
+        }
+        console.log(getRandomValueFromArray(arr));
+
+        //함수를 배열 객체에 포함시키는 방법. 이 방법은 마치 배열에 내장된 메소드인 것처럼 위의 기능을 사용할 수 있다.
+        Array.prototype.rand = function(){
+            let index = Math.floor(this.length*Math.random());
+            return this[index];
+        }
+        //이 코드에서 this는 바로 lArray객체인 배열이다.
+        let lArray = new Array('seoul','new york','ladarkh','pusan','Tsukuba');
+        console.log(lArray.rand());
+    </script>
+</body>
+</html>

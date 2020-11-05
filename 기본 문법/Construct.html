@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <script>
+        //자바스크립트의 객체지향은 JS만의 아주 독특만 방법을 가지고있다.
+        //Prototype - based Programming
+
+        //객체란 서로 연관된 변수와 함수를 그룹핑한 그릇이라고 할 수 있다.
+        //객체 내의 변수를 프로퍼티(property) 함수를(method)라고 부른다.
+
+        
+        var person = {
+        }
+        person.name = 'egoing';
+        person.introduce = function(){
+            return "My name is "+this.name;
+        };
+        document.write(person.introduce());
+        
+
+        //객체를 만드는 과정에 분산되어 있다. 객체를 정의 할 때 값을 세팅하도록 코드를 바꿔보자.
+        var person2 = {
+            'name' : 'egoing',
+            'introduce' : function(){
+                return 'My name is ' + this.name;
+            }
+        }
+
+        var person3 = {
+            'name' : 'leezche',
+            'introduce' : function(){
+                return 'My name is ' + this.name;
+            }
+        }
+
+        console.log(person.introduce());
+
+        //생성자(constructor)는 객체를 만드는 역할을 하는 함수다.
+        //자바스크립트에서 함수는 재사용 가능한 로직의 묶음이 아니라 객체를 만드는 창조자 라고 할 수 있다.(JAVA에서 클래스와 같은 역할)
+        //하지만 자바스크립트에서 생성자는 어디에도 소속되어 있지 않고 함수일 뿐이다. 이 함수에 new를 붙이면 객체를 생성한다.
+       
+        // function Person(){}
+        // var p = new Person();
+        // p.name = 'egoing';
+        // p.introduce = function(){
+        //     return 'My name is '+this.name;
+        // }
+
+        function Person(name){
+            this.name = name;
+            this.introduce = function(){
+                return 'My name is ' + this.name;
+            }
+        }
+        //생성자 내에서 이 객체의 프로퍼티를 정의하고 있다. 이러한 작업을 초기화 라고 한다.
+        //이를 통해서 코드의 재사용성이 대폭 높아졌다.
+        var p1 = new Person('egoing');
+        console.log(p1.introduce());
+
+        var p2 = new Person('leezche');
+        console.log(p2.introduce());
+        /*
+        자바스크립트 생성자의 특징
+        - 일반적인 객체지향 언어에서 생성자는 클래스의 소속이다. 
+          하지만 자바스크립트에서 객체를 만드는 주체는 함수다. 
+          함수에 new를 붙이는 것을 통해서 객체를 만들 수 있다는 점은 자바스크립트에서 함수의 위상을 암시하는 단서이면서 
+          또 자바스크립트가 추구하는 자유로움을 보여주는 사례라고 할 수 있다.
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+    <script>
+        var o = {}
+        var p = {}
+        function func(){
+            switch(this){
+                case o:
+                    console.log("o");
+                    break;
+                case p:
+                    console.log("p");
+                    break;
+                case window:
+                    console.log("window");
+                    break;
+            }
+        }
+        func();
+        func.apply(o);
+        func.apply(p);
+        /*
+        메소드가 객체에 강하게 종속되는 다른 객체 지향 언어와 달리
+        자바스크립트에서의 함수는 매우 유연한데 함수를 어떻게 호출하느냐에 따라
+        여러 객체에 각각 종속될 수 있으며 함수 자체로도 객체가 된다.
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+    <script>
+        /*
+        *prototype이란 무엇인가*
+        한국어로는 원형정도로 번역되는 prototype은 말 그대로 객체의 원형이라고 할 수 있다. 
+        함수는 객체다. 그러므로 생성자로 사용될 함수도 객체다.
+        객체는 프로퍼티를 가질 수 있는데 prototype이라는 프로퍼티는 그 용도가 약속되어 있는 특수한 프로퍼티다.
+        prototype에 저장된 속성들은 생성자를 통해서 객체가 만들어질 때 그 객체에 연결된다. 
+        */
+        function Ultra(){}
+        Ultra.prototype.ultraProp = true;
+        
+        function Super(){}
+        Super.prototype = new Ultra();
+        
+        function Sub(){}
+        Sub.prototype = new Super();
+        
+        let o = new Sub();
+        o.ultraProp = 1;
+        console.log(o. );
+        console.log(Ultra.ultraProp);
+
+        //이러한 개념은 Prototype chain이라고 한다.
+    </script>
+</body>
+</html>

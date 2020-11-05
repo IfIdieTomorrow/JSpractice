@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+    <script>
+        function sum(x,y){
+            return x+y;
+        }
+        //sum은 객체, 함수 리터럴이라고 한다.
+        console.log(sum(1,2));
+
+        let sum2 = new Function('x','y','return x+y;');
+        console.log(sum2(1.2));
+
+    </script>
+</body>
+</html>
